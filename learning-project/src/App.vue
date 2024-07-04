@@ -1,24 +1,23 @@
-<template>
-  <h1>Hello World</h1>
-</template>
 
 <script>
-
-
-export default {
-  name: 'App',
-  components: {
+  export default {
+   
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<template>
+  <h1>{{ name }}</h1>
+  <p v-if="status === 'active'" >User is active</p>
+  <p v-else-if="status === 'pending'">User is pending</p>
+  <p v-else>User is inactive</p>
+
+  <h3>Tasks:</h3>
+  <ul>
+    <li v-for="task in tasks" :key="task">{{ task }}</li>
+  </ul>
+  <a :href="link">Click for Google</a>
+  <br>
+  <br>
+  <button @click="toggleStatus">Change Status</button>
+</template>
+
